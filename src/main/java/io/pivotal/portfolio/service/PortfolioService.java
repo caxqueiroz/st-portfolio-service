@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -37,6 +38,7 @@ import io.pivotal.portfolio.repository.OrderRepository;
 public class PortfolioService {
 	private static final Logger logger = LoggerFactory.getLogger(PortfolioService.class);
 
+
 	/**
 	 * The order repository to store Order objects.
 	 */
@@ -50,7 +52,6 @@ public class PortfolioService {
 	QuoteRemoteCallService quoteService;
 
 	@Autowired
-	@LoadBalanced
 	private RestTemplate restTemplate;
 
 	// @Value("${pivotal.quotesService.name}")
